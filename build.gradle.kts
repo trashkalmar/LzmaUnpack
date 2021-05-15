@@ -1,17 +1,17 @@
+repositories {
+  mavenCentral()
+  maven(url = "https://jitpack.io")
+}
+
+
 plugins {
-    kotlin("jvm") version "1.3.61"
-    maven
-    `maven-publish`
+  kotlin("jvm") version "1.5.0"
+  `maven-publish`
 }
 
 group = "com.github.trashkalmar"
-version = "1.0"
-
-repositories {
-    jcenter()
-    maven("https://jitpack.io")
-}
+version = "1.0.1"
 
 dependencies {
-    implementation(kotlin("stdlib"))
+  implementation(kotlin("stdlib"))
 }
