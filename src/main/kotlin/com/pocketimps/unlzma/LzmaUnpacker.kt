@@ -427,7 +427,7 @@ private class Decoder {
         val remainder = propValue / 9
         val lp = remainder % 5
         val pb = remainder / 5
-        val dictionarySize = (0..3).sumBy {
+        val dictionarySize = (0..3).sumOf {
             (properties[1 + it].toIntFixed() and 0xFF) shl (it * 8)
         }
 
