@@ -1,17 +1,31 @@
 plugins {
-    kotlin("jvm") version "1.3.61"
-    maven
-    `maven-publish`
+  kotlin("jvm") version "1.5.0"
+  `maven-publish`
 }
 
-group = "com.github.trashkalmar"
-version = "1.0"
-
 repositories {
-    jcenter()
-    maven("https://jitpack.io")
+  mavenCentral()
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
+  implementation(kotlin("stdlib"))
+}
+
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+}
+
+publishing {
+  publications {
+    create<MavenPublication>("maven") {
+      groupId = "com.pocketimps"
+      artifactId = "unlzma"
+      version = "1.0.1"
+
+      from(components["kotlin"])
+    }
+  }
 }
